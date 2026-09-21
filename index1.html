@@ -1,0 +1,762 @@
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>About Me - Week 4</title>
+
+
+<style>
+
+    /* =========================================
+       CSS VARIABLES
+    ========================================= */
+
+    :root {
+
+        --primary: #063b6d;
+
+        --accent: #f5c542;
+
+        --light: #eef3f8;
+
+        --white: #ffffff;
+
+        --text: #222;
+
+        --spacing: 16px;
+
+        --radius: 7px;
+
+    }
+
+
+    /* =========================================
+       BASIC RESET
+    ========================================= */
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    body {
+
+        margin: 0;
+
+        font-family: Arial, Helvetica, sans-serif;
+
+        color: var(--text);
+
+        line-height: 1.6;
+
+    }
+
+
+    /* =========================================
+       MAIN PAGE GRID
+    ========================================= */
+
+    .page {
+
+        display: grid;
+
+        min-height: 100vh;
+
+
+        grid-template-areas:
+
+            "header header"
+
+            "sidebar main"
+
+            "footer footer";
+
+
+        grid-template-columns: 220px 1fr;
+
+        grid-template-rows: auto 1fr auto;
+
+    }
+
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    .page__header {
+
+        grid-area: header;
+
+        background-color: var(--primary);
+
+        color: white;
+
+        padding: 25px;
+
+    }
+
+
+    .page__header h1 {
+
+        margin: 0;
+
+    }
+
+
+    .page__header p {
+
+        margin-bottom: 15px;
+
+    }
+
+
+    /* =========================================
+       FLEXBOX NAVIGATION INSIDE GRID HEADER
+    ========================================= */
+
+    .navigation {
+
+        display: flex;
+
+        gap: 20px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .navigation a {
+
+        color: white;
+
+        text-decoration: none;
+
+        font-weight: bold;
+
+    }
+
+
+    .navigation a:hover {
+
+        color: var(--accent);
+
+    }
+
+
+    /* =========================================
+       SIDEBAR
+    ========================================= */
+
+    .page__sidebar {
+
+        grid-area: sidebar;
+
+        background-color: var(--light);
+
+        padding: 20px;
+
+    }
+
+
+    .page__sidebar h2 {
+
+        color: var(--primary);
+
+    }
+
+
+    .page__sidebar ul {
+
+        padding-left: 20px;
+
+    }
+
+
+    .page__sidebar li {
+
+        margin-bottom: 10px;
+
+    }
+
+
+    /* =========================================
+       MAIN CONTENT
+    ========================================= */
+
+    .page__main {
+
+        grid-area: main;
+
+        padding: 30px;
+
+    }
+
+
+    .profile {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 25px;
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .profile__image {
+
+        width: 170px;
+
+        height: 170px;
+
+        object-fit: cover;
+
+        border-radius: var(--radius);
+
+    }
+
+
+    .profile__text {
+
+        flex-grow: 1;
+
+    }
+
+
+    /* =========================================
+       INFORMATION GRID
+    ========================================= */
+
+    .cards {
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: var(--spacing);
+
+        margin-top: 20px;
+
+    }
+
+
+    /* =========================================
+       CARD
+    ========================================= */
+
+    .card {
+
+        background-color: var(--white);
+
+        border: 1px solid #ddd;
+
+        border-radius: var(--radius);
+
+        padding: 20px;
+
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+
+        /* FLEXBOX INSIDE GRID */
+
+        display: flex;
+
+        flex-direction: column;
+
+    }
+
+
+    .card--featured {
+
+        grid-column: span 2;
+
+        background-color: #fffdf3;
+
+        border: 2px solid var(--accent);
+
+    }
+
+
+    .card__title {
+
+        color: var(--primary);
+
+        margin-top: 0;
+
+    }
+
+
+    .card__body {
+
+        flex-grow: 1;
+
+    }
+
+
+    .card__button {
+
+        align-self: flex-start;
+
+        background-color: var(--accent);
+
+        border: none;
+
+        padding: 9px 16px;
+
+        border-radius: 5px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+    }
+
+
+    .card__button:hover {
+
+        transform: translateY(-2px);
+
+    }
+
+
+    /* =========================================
+       HOBBIES GRID
+    ========================================= */
+
+    .hobbies {
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 10px;
+
+        margin-top: 20px;
+
+    }
+
+
+    .hobby {
+
+        background-color: var(--light);
+
+        padding: 15px;
+
+        text-align: center;
+
+        border-radius: var(--radius);
+
+    }
+
+
+    /* =========================================
+       FUN FACT
+    ========================================= */
+
+    .fun-fact {
+
+        margin-top: 30px;
+
+        background-color: var(--light);
+
+        border-left: 5px solid var(--accent);
+
+        padding: 20px;
+
+        border-radius: var(--radius);
+
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .page__footer {
+
+        grid-area: footer;
+
+        background-color: var(--primary);
+
+        color: white;
+
+        padding: 25px;
+
+        text-align: center;
+
+    }
+
+
+    .page__footer a {
+
+        color: var(--accent);
+
+        font-weight: bold;
+
+    }
+
+
+    /* =========================================
+       RESPONSIVE GRID
+    ========================================= */
+
+    @media (max-width: 750px) {
+
+        .page {
+
+            grid-template-areas:
+
+                "header"
+
+                "main"
+
+                "sidebar"
+
+                "footer";
+
+
+            grid-template-columns: 1fr;
+
+        }
+
+
+        .cards {
+
+            grid-template-columns: repeat(2, 1fr);
+
+        }
+
+
+        .hobbies {
+
+            grid-template-columns: repeat(2, 1fr);
+
+        }
+
+    }
+
+
+    @media (max-width: 550px) {
+
+        .profile {
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+        }
+
+
+        .cards {
+
+            grid-template-columns: 1fr;
+
+        }
+
+
+        .card--featured {
+
+            grid-column: span 1;
+
+        }
+
+
+        .hobbies {
+
+            grid-template-columns: 1fr;
+
+        }
+
+    }
+
+</style>
+<div class="page">
+
+
+    <!-- ======================================
+         HEADER
+    ======================================= -->
+
+    <header class="page__header">
+
+        <h1>Kezia Naa Kaale Hammond</h1>
+
+        <p>
+            Information Technology Student |
+            Technology & Creativity
+        </p>
+
+
+        <nav class="navigation"
+             aria-label="Main navigation">
+
+            <a href="#about">About</a>
+
+            <a href="#facts">Quick Facts</a>
+
+            <a href="#hobbies">Hobbies</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ======================================
+         SIDEBAR
+    ======================================= -->
+
+    <aside class="page__sidebar">
+
+        <h2>My Interests</h2>
+
+        <ul>
+
+            <li>Information Technology</li>
+
+            <li>Web Development</li>
+
+            <li>Creative Design</li>
+
+            <li>Technology</li>
+
+            <li>Digital Projects</li>
+
+        </ul>
+
+    </aside>
+
+
+    <!-- ======================================
+         MAIN
+    ======================================= -->
+
+    <main class="page__main"
+          id="about">
+
+
+        <h2>About Me</h2>
+
+
+        <!-- FLEXBOX PROFILE -->
+
+        <section class="profile">
+
+
+            <img class="profile__image"
+                 src="c:\Users\kezia\Downloads\My pic.jpg"
+                 alt="My profile photo">
+
+
+            <div class="profile__text">
+
+                <h2>Hi, I'm Kay!</h2>
+
+                <p>
+                    I am an Information Technology student
+                    interested in technology, web development
+                    and creative digital projects.
+                </p>
+
+                <p>
+                    I enjoy learning new skills and using
+                    technology to bring creative ideas to life.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+
+        GRID CARDS
+        ======================================= -->
+
+        <section id="facts">
+
+            <h2>Quick Facts</h2>
+
+
+            <div class="cards">
+
+
+                <!-- FEATURED CARD -->
+
+                <article class="card card--featured">
+
+                    <h3 class="card__title">
+                        Information Technology
+                    </h3>
+
+                    <p class="card__body">
+
+                        I am studying Information Technology
+                        and developing skills in web development,
+                        programming and other areas of computing.
+
+                    </p>
+
+                    <button class="card__button">
+                        My Field
+                    </button>
+
+                </article>
+
+
+                <!-- CARD 2 -->
+
+                <article class="card">
+
+                    <h3 class="card__title">
+                        Web Development
+                    </h3>
+
+                    <p class="card__body">
+
+                        I am learning HTML, CSS and JavaScript
+                        and improving my ability to create
+                        attractive and useful websites.
+
+                    </p>
+
+                    <button class="card__button">
+                        My Interest
+                    </button>
+
+                </article>
+
+
+                <!-- CARD 3 -->
+
+                <article class="card">
+
+                    <h3 class="card__title">
+                        Creativity
+                    </h3>
+
+                    <p class="card__body">
+
+                        I enjoy creative projects that allow me
+                        to combine design and technology.
+
+                    </p>
+
+                    <button class="card__button">
+                        Explore
+                    </button>
+
+                </article>
+
+
+                <!-- CARD 4 -->
+
+                <article class="card">
+
+                    <h3 class="card__title">
+                        My Goal
+                    </h3>
+
+                    <p class="card__body">
+
+                        My goal is to continue developing my
+                        technical skills and build a successful
+                        career in technology.
+
+                    </p>
+
+                    <button class="card__button">
+                        My Goal
+                    </button>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             HOBBIES
+        ======================================= -->
+
+        <section id="hobbies">
+
+            <h2>Hobbies & Interests</h2>
+
+
+            <div class="hobbies">
+
+                <div class="hobby">
+                    Learning Technology
+                </div>
+
+                <div class="hobby">
+                    Web Development
+                </div>
+
+                <div class="hobby">
+                    Creative Design
+                </div>
+
+                <div class="hobby">
+                    Digital Projects
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             FUN FACT
+        ======================================= -->
+
+        <section class="fun-fact">
+
+            <h3>Fun Fact</h3>
+
+            <p>
+                I enjoy learning new things and finding
+                creative ways to turn my ideas into practical
+                projects.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ======================================
+         FOOTER
+    ======================================= -->
+
+    <footer class="page__footer"
+            id="contact">
+
+        <p>
+
+            Email:
+
+            <a href="mailto:your@email.com">
+                keziahammond7@gmail.com
+            </a>
+
+        </p>
+
+
+        <p>
+            &copy; 2026 Kay.
+            Built for ITW 205.
+        </p>
+
+    </footer>
+
+
+</div>
